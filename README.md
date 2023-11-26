@@ -9,3 +9,7 @@
 
 #Programador: debe ser capaz de convertir números ingresados en sistema a otro sistema. De decimal
 #a Binario, de decimal a hexadecimal, de binario a hexadecimal y de hexadecimal a decimal.
+
+
+#Desarrollado con Visual studio corde
+#Compilador MySys2
