@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Estandar.h"
 #include "Cientifica.h"
+#include "Programador.h"
 
 
 void calculadora_estandar() {
@@ -45,7 +46,7 @@ void calculadora_estandar() {
             }
             break;
         default:
-            printf("Opcion no valida.\n");
+            printf("La opcion no es valida, porfavor indique una correcta\n");
     }
     } while (opcion_estandar < 1 || opcion_estandar > 4); // Continuar el bucle si la opción no es válida
 }
@@ -95,7 +96,7 @@ void calculadora_cientifica() {
           break; 
             
         default:
-            printf("Opcion no valida.\n");
+            printf("La opcion no es valida, porfavor indique una correcta\n");
         
     }
 }  while (opcion_cientifica < 1 || opcion_cientifica > 4); // Continuar el bucle si la opción no es válida
@@ -103,8 +104,56 @@ void calculadora_cientifica() {
 }
 void calculadora_programador() {
     // Implementa la lógica de la calculadora programador aquí
-    printf("Calculadora programador seleccionada\n");
+    // Implementa la lógica de la calculadora científica aquí
+    printf("\n-------------------------Calculadora Programador-------------------------\n");
+    float valorx;
+    int opcion_programador;
+    char valor_n[32];
+    
+     do {
+        // Menú de operaciones
+            printf("\nSeleccione el cambio que quiere realizar\n");
+            printf("1. De decimal a binario\n");
+            printf("2. De decimal a Hexadecimal\n");
+            printf("3. De binario a Hexadecimal\n");
+            printf("4. De Hexadecimal a decimal\n");
+            
+
+            printf("Seleccione una opcion (1-4): ");
+            scanf("%d", &opcion_programador);
+
+
+    switch (opcion_programador) {
+        case 1:
+            printf("Ingrese el numero decimal: ");
+            scanf("%f", &valorx);
+            decimalABinario(valorx);
+            break;  
+        case 2:
+            printf("Ingrese el numero decimal: ");
+            scanf("%f", &valorx);
+            decimaAHexa(valorx);
+            break;  
+        case 3:
+            printf("Ingrese el numero binario: ");
+            scanf("%s", &valor_n);
+            binarioAHexa(valor_n);
+            break;
+        case 4:
+            printf("Ingrese el numero hexadecimal: ");
+            scanf("%s", &valor_n);
+            printf("El cambio de el numero hexadecimal %s a decimal es de %.d\n",valor_n, hexaADecimma(valor_n));
+     
+            
+            break;   
+        default:
+            printf("La opcion no es valida, porfavor indique una correcta\n");
+         
+        }
+}  while (opcion_programador < 1 || opcion_programador > 4); // Continuar el bucle si la opción no es válida
+
 }
+
 
 int main() {
     int opcion;
@@ -137,7 +186,7 @@ int main() {
                 printf("¡Apagando!\n");
                 return 0;
             default:
-                printf("\nPor favor, seleccione una opcion valida (1-4).\n");
+                printf("\nPor favor, seleccione una opcion correcta.\n");
         }
     }
 
