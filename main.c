@@ -1,10 +1,54 @@
 #include <stdio.h>
+#include "Estandar.h"
 
 
 void calculadora_estandar() {
-    // Implementa la lógica de la calculadora estándar aquí
-    printf("Calculadora estandar seleccionada\n");
+    float num_primero, num_segundo;
+    int operacion;
+
+    printf("\n-------------------------Calculadora estandar-------------------------\n");
+    printf("Ingrese el primer numero: ");
+    scanf("%f", &num_primero);
+
+    printf("Ingrese el segundo numero: ");
+    scanf("%f", &num_segundo);
+
+    
+
+    // Ejecutar la operación seleccionada
+   do {
+        // Menú de operaciones
+            printf("\nSeleccione la operacion:\n");
+            printf("1. Suma\n");
+            printf("2. Resta\n");
+            printf("3. Multiplicacion\n");
+            printf("4. Division\n");
+
+            printf("Seleccione una opcion (1-4): ");
+            scanf("%d", &operacion);
+    switch (operacion) {
+        case 1:
+            printf("%.1f + %.1f = %.1f\n", num_primero, num_segundo, suma(num_primero, num_segundo));
+            break;
+        case 2:
+            printf("%.1f - %.1f = %.1f\n", num_primero, num_segundo, resta(num_primero, num_segundo));
+            break;
+        case 3:
+            printf("%.1f * %.1f = %.1f\n", num_primero, num_segundo, multiplicacion(num_primero, num_segundo));
+            break;
+        case 4:
+            if (num_segundo != 0) {
+                printf("%.1f / %.1f = %.1f\n", num_primero, num_segundo, division(num_primero, num_segundo));
+            } else {
+                printf("Recordemos que un divisor no puede ser 0.\n");
+            }
+            break;
+        default:
+            printf("Opcion no valida.\n");
+    }
+    } while (operacion < 1 || operacion > 4); // Continuar el bucle si la opción no es válida
 }
+
 
 void calculadora_cientifica() {
     // Implementa la lógica de la calculadora científica aquí
