@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "Estandar.h"
+#include "Cientifica.h"
 
 
 void calculadora_estandar() {
     float num_primero, num_segundo;
-    int operacion;
+    int opcion_estandar;
 
     printf("\n-------------------------Calculadora estandar-------------------------\n");
     printf("Ingrese el primer numero: ");
@@ -25,8 +26,8 @@ void calculadora_estandar() {
             printf("4. Division\n");
 
             printf("Seleccione una opcion (1-4): ");
-            scanf("%d", &operacion);
-    switch (operacion) {
+            scanf("%d", &opcion_estandar);
+    switch (opcion_estandar) {
         case 1:
             printf("%.1f + %.1f = %.1f\n", num_primero, num_segundo, suma(num_primero, num_segundo));
             break;
@@ -46,15 +47,60 @@ void calculadora_estandar() {
         default:
             printf("Opcion no valida.\n");
     }
-    } while (operacion < 1 || operacion > 4); // Continuar el bucle si la opción no es válida
+    } while (opcion_estandar < 1 || opcion_estandar > 4); // Continuar el bucle si la opción no es válida
 }
 
 
 void calculadora_cientifica() {
     // Implementa la lógica de la calculadora científica aquí
-    printf("Calculadora cientifica seleccionada\n");
-}
+    printf("\n-------------------------Calculadora Cientifica-------------------------\n");
+    float valor_x, valor_n;
+    int opcion_cientifica;
+    
+     do {
+        // Menú de operaciones
+            printf("\nSeleccione la operacion:\n");
+            printf("1. 10 ^ x\n");
+            printf("2. X ^ N\n");
+            printf("3. X ^ 2\n");
+            printf("4. Raiz cuadrada de X\n");
 
+            printf("Seleccione una opcion (1-4): ");
+            scanf("%d", &opcion_cientifica);
+
+    switch (opcion_cientifica) {
+        case 1:
+            printf("Ingrese el exponente para 10: ");
+            scanf("%f", &valor_x);
+            printf("10 ^ %.1f = %.1f\n",valor_x, exponente10(valor_x));
+          break;  
+        case 2:
+            
+            printf("Ingrese la base: ");
+            scanf("%f", &valor_x);
+            printf("Ingrese el exponente: ");
+            scanf("%f", &valor_n);
+            
+            printf("%.1f ^ %.1f = %.1f\n",valor_x,valor_n, exponentes(valor_x,valor_n));
+          break; 
+        case 3:
+            printf("Ingrese la base para elevarlo al cuadrado: ");
+            scanf("%f", &valor_x);
+            printf("%.1f ^ 2 = %.1f\n",valor_x, exponente2(valor_x));
+          break;
+        case 4:
+            printf("Ingrese el numero del que se va a sacar la raiz cuadrada: ");
+            scanf("%f", &valor_x);
+            printf("raiz cuadrada de %.1f es %.1f\n",valor_x, raiz(valor_x));
+          break; 
+            
+        default:
+            printf("Opcion no valida.\n");
+        
+    }
+}  while (opcion_cientifica < 1 || opcion_cientifica > 4); // Continuar el bucle si la opción no es válida
+
+}
 void calculadora_programador() {
     // Implementa la lógica de la calculadora programador aquí
     printf("Calculadora programador seleccionada\n");
