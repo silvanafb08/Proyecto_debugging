@@ -27,7 +27,14 @@ void calculadora_estandar() {
             printf("4. Division\n");
 
             printf("Seleccione una opcion (1-4): ");
-            scanf("%d", &opcion_estandar);
+            if (scanf("%d", &opcion_estandar) != 1) {
+            printf("No esta ingresando un numero de opcion, vuelva a intentar.\n");
+            while (getchar() != '\n'); // Limpiar el búfer
+            continue; // Volver al principio del bucle
+        }
+
+        // Limpiar el búfer si hay caracteres adicionales
+        while (getchar() != '\n');
     switch (opcion_estandar) {
         case 1:
             printf("%.1f + %.1f = %.1f\n", num_primero, num_segundo, suma(num_primero, num_segundo));
@@ -67,7 +74,14 @@ void calculadora_cientifica() {
             printf("4. Raiz cuadrada de X\n");
 
             printf("Seleccione una opcion (1-4): ");
-            scanf("%d", &opcion_cientifica);
+            if (scanf("%d", &opcion_cientifica) != 1) {
+            printf("No esta ingresando un numero de opcion, vuelva a intentar.\n");
+            while (getchar() != '\n'); // Limpiar el búfer
+            continue; // Volver al principio del bucle
+        }
+
+        // Limpiar el búfer si hay caracteres adicionales
+        while (getchar() != '\n');
 
     switch (opcion_cientifica) {
         case 1:
@@ -120,8 +134,15 @@ void calculadora_programador() {
             
 
             printf("Seleccione una opcion (1-4): ");
-            scanf("%d", &opcion_programador);
+            // Intentar leer un entero
+        if (scanf("%d", &opcion_programador) != 1) {
+            printf("No esta ingresando un numero de opcion, vuelva a intentar.\n");
+            while (getchar() != '\n'); // Limpiar el búfer
+            continue; // Volver al principio del bucle
+        }
 
+        // Limpiar el búfer si hay caracteres adicionales
+        while (getchar() != '\n');
 
     switch (opcion_programador) {
         case 1:
@@ -150,7 +171,8 @@ void calculadora_programador() {
             printf("La opcion no es valida, porfavor indique una correcta\n");
          
         }
-}  while (opcion_programador < 1 || opcion_programador > 4); // Continuar el bucle si la opción no es válida
+
+    }  while (opcion_programador < 1 || opcion_programador > 4); // Continuar el bucle si la opción no es válida
 
 }
 
@@ -168,25 +190,28 @@ int main() {
 
         // Solicitar la opción al usuario
         printf("Seleccione una opción (1-4): ");
-        scanf("%d", &opcion);
+         if (scanf("%d", &opcion) != 1) {
+            printf("No esta ingresando un numero de opcion, vuelva a intentar.\n");
+            while (getchar() != '\n'); // Limpiar el búfer
+            continue; // Volver al principio del bucle
+        }
+
+        // Limpiar el búfer si hay caracteres adicionales
+        while (getchar() != '\n');
 
         // Ejecutar la opción seleccionada
-        switch (opcion) {
-            case 1:
-                calculadora_estandar();
-                break;
-            case 2:
-                calculadora_cientifica();
-                break;
-            case 3:
-                calculadora_programador();
-                break;
-            case 4:
-                // Salir del bucle si la opción es 4
-                printf("¡Apagando!\n");
-                return 0;
-            default:
-                printf("\nPor favor, seleccione una opcion correcta.\n");
+        if (opcion == 1) {
+            calculadora_estandar();
+        } else if (opcion == 2) {
+            calculadora_cientifica();
+        } else if (opcion == 3) {
+            calculadora_programador();
+        } else if (opcion == 4) {
+            // Salir del bucle si la opción es 4
+            printf("Apagando..!\n");
+            return 0;
+        } else {
+            printf("\nPor favor, seleccione una opcion correcta.\n");
         }
     }
 
